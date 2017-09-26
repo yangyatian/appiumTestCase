@@ -24,10 +24,11 @@ public class TestLogin extends BaseInit {
 	public void testLogin1() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginStep(username, pwd);
-		//loginPage.localdataAlert();
+		loginPage.localdataAlert();
 		//登录后自动跳转到上一页
 		PersonalPage persionalPage = new PersonalPage(driver);
 		assertTrue(persionalPage.getloginEntry().getText().equals(userLoginName));
+		//退出登录
 		loginPage.logoutStep();
 	}
 	
@@ -41,7 +42,7 @@ public class TestLogin extends BaseInit {
 	}
 	
 	@AfterMethod
-	public void afterTestcase(){
+	public void afterTestcase(){		
 		HomePage homePage = new HomePage(driver);
 		homePage.backToHome();
 	}

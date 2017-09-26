@@ -1,8 +1,10 @@
 package findBy;
 
+import java.util.List;
 import org.openqa.selenium.WebElement;
-
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.FindsByAndroidUIAutomator;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidElement;
 
 public class GetElement {
@@ -16,7 +18,7 @@ public class GetElement {
 	* @param content-desc 的内容
 	* @return
 	*/
-	public WebElement getViewbyXathwithcontentdesc(String view,String name){
+	public WebElement getViewbyXathwithcontentdesc(String view, String name){
 	return this.driver.findElementByXPath("//"+view+"[contains(@content-desc,'"+name+"')]");
 	}
 	/***
@@ -25,8 +27,13 @@ public class GetElement {
 	* @param text的内容
 	* @return
 	*/
-	public WebElement getViewbyXathwithtext(String view,String name){
+	public WebElement getViewbyXathwithtext(String view, String name){
 	return this.driver.findElementByXPath("//"+view+"[contains(@text,'"+name+"')]");
 	}
-
+	//通过classname和index定位多个元素list方法（需要引入sdk下的android和uiautomator的jar包）
+	public List<MobileElement> getElementsByClassAndIndex(String classname, int index) {
+		List<MobileElement> lis = null;
+		lis = ((FindsByAndroidUIAutomator<MobileElement>) driver).findElementsByAndroidUIAutomator("new UiSelector().className(" + classname + ").index(" + index + ")");
+		return lis;
+	}
 }

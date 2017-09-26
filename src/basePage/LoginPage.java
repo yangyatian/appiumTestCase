@@ -48,15 +48,6 @@ public class LoginPage extends BaseInit{
 		return this.driver.findElement(yesINeed);
 	}
 
-	// 登录方法
-	public void LoginAfter(){
-		String username = "13436975946";
-		String pwd = "298896";
-		LoginPage loginPage = new LoginPage(driver);
-		loginPage.loginStep(username, pwd);
-		// loginPage.localdataAlert();
-
-	}
 	//登录步骤
 	public void loginStep(String username, String pwd){
 		getUserNameInput().sendKeys(username);
@@ -103,16 +94,9 @@ public class LoginPage extends BaseInit{
 			System.out.println("未登录，可继续登录用例执行");
 		}
 	}
-	
-	
-	By loginPageTitle = By.id("com.autonavi.minimap:id/title_text_name");
-	By toomuchloginAlert = By.name("知道了");
-	
-	public WebElement getKnowBtn(){
-		return this.driver.findElement(toomuchloginAlert);
-	}
-	public WebElement loginPageTitle(){
-		return this.driver.findElement(loginPageTitle);
+	By loginPageTit = By.xpath("");
+	public WebElement loginPageTitle() {
+		return driver.findElement(loginPageTit);
 	}
 
 }

@@ -2,6 +2,8 @@ package baseInit;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -16,6 +18,7 @@ public class BaseInit {
 	String appPackage = "com.autonavi.minimap";
 	String appActivity = "com.autonavi.map.activity.NewMapActivity";
 	String platfromName = "Android";
+	
 	@BeforeSuite
 	public void setUp() throws MalformedURLException{		
 		DesiredCapabilities cap = new DesiredCapabilities();
@@ -32,8 +35,10 @@ public class BaseInit {
 		cap.setCapability("unicodeKeyboard", "True");
 		cap.setCapability("resetKeyboard", "True");
 
-		driver = new AndroidDriver<>(new URL(
+		driver = new AndroidDriver<AndroidElement>(new URL(
 				"http://127.0.0.1:4723/wd/hub"), cap);
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); 
 	}
 	
 	@AfterSuite
