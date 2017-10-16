@@ -7,26 +7,25 @@ import java.util.Date;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.OutputType;
-
 import baseInit.BaseInit;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidElement;
 
 public class Action extends BaseInit {
-	
-	public Action(AppiumDriver<AndroidElement> driver){
+
+	public Action(AppiumDriver<AndroidElement> driver) {
 		this.driver = driver;
 	}
-	
-	public void waitForFindElement(){
-		this.driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+	//等待获取元素
+	public void waitForFindElement() {
+		this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
-	//获取当前时间并截图
-	public String getScreen(){
+
+	// 获取当前时间并截图
+	public String getScreen() {
 		String fileRoute = "//testing/testPicture/";
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH-mm");
 		String picname = fileRoute + df.format(new Date()).toString() + ".png";
@@ -42,93 +41,110 @@ public class Action extends BaseInit {
 			e.printStackTrace();
 		}
 		return null;
-		
 
 	}
+
 	/***
-	* 上滑1/4屏幕
-	*/
+	 * 上滑1/4屏幕
+	 */
 	public void slideUP() {
 		int x = driver.manage().window().getSize().width;
 		int y = driver.manage().window().getSize().height;
 		this.driver.swipe(x / 2, y / 3 * 2, x / 2, y / 3 * 1, 0);
 	}
+
 	/***
-	* 上滑屏幕
-	*/
+	 * 上滑屏幕
+	 */
 	public void slideUPs() {
 		int x = driver.manage().window().getSize().width;
 		int y = driver.manage().window().getSize().height;
 		this.driver.swipe(x / 2, y / 10 * 2, x / 2, y / 10 * 1, 0);
 	}
+
 	/***
-	* 下滑1/4屏幕
-	*/
+	 * 下滑1/4屏幕
+	 */
 	public void slideDown() {
 		int x = driver.manage().window().getSize().width;
 		int y = driver.manage().window().getSize().height;
 		this.driver.swipe(x / 2, y / 3 * 1, x / 2, y / 3 * 2, 0);
 	}
+
 	/***
-	* 左滑1/2屏幕
-	*/
+	 * 左滑1/2屏幕
+	 */
 	public void slideLeft() {
 		int x = driver.manage().window().getSize().width;
 		int y = driver.manage().window().getSize().height;
 		this.driver.swipe(x / 4 * 3, y / 2, x / 4 * 1, y / 2, 0);
 	}
+
 	/***
-	* 右滑1/2屏幕
-	*/
+	 * 右滑1/2屏幕
+	 */
 	public void slideRight() {
 		int x = driver.manage().window().getSize().width;
 		int y = driver.manage().window().getSize().height;
 		this.driver.swipe(x / 4 * 1, y / 2, x / 4 * 3, y / 2, 0);
 	}
+
 	/***
-	* 特殊上滑
-	* @param 传入从左到右宽度的百分比(1-99之间)
-	*/
+	 * 特殊上滑
+	 * 
+	 * @param 传入从左到右宽度的百分比
+	 *            (1-99之间)
+	 */
 	public void slideUP(int i) {
 		Assert.assertFalse("上滑宽度传入错误", i <= 0 || i >= 100);
 		int x = driver.manage().window().getSize().width;
 		int y = driver.manage().window().getSize().height;
 		this.driver.swipe(x / 10 * i, y / 3 * 2, x / 10 * i, y / 3 * 1, 0);
 	}
+
 	/***
-	* 特殊下滑
-	* @param 传入从左到右宽度的百分比(1-99之间)
-	*/
+	 * 特殊下滑
+	 * 
+	 * @param 传入从左到右宽度的百分比
+	 *            (1-99之间)
+	 */
 	public void slideDown(int i) {
 		Assert.assertFalse("下滑宽度传入错误", i <= 0 || i >= 100);
 		int x = driver.manage().window().getSize().width;
 		int y = driver.manage().window().getSize().height;
 		this.driver.swipe(x / 10 * i, y / 3 * 1, x / 10 * i, y / 3 * 2, 0);
 	}
+
 	/***
-	* 特殊左滑
-	* @param 传入从上到下宽度的百分比(1-99之间)
-	*/
+	 * 特殊左滑
+	 * 
+	 * @param 传入从上到下宽度的百分比
+	 *            (1-99之间)
+	 */
 	public void slideLeft(int i) {
 		Assert.assertFalse("左滑宽度传入错误", i <= 0 || i >= 100);
 		int x = driver.manage().window().getSize().width;
 		int y = driver.manage().window().getSize().height;
 		this.driver.swipe(x / 4 * 3, y / 10 * i, x / 4 * 2, y / 10 * i, 0);
 	}
+
 	/***
-	* 特殊右滑
-	* @param 传入从上到下宽度的百分比(1-99之间)
-	*/
+	 * 特殊右滑
+	 * 
+	 * @param 传入从上到下宽度的百分比
+	 *            (1-99之间)
+	 */
 	public void slideRight(int i) {
 		Assert.assertFalse("左滑宽度传入错误", i <= 0 || i >= 100);
 		int x = driver.manage().window().getSize().width;
 		int y = driver.manage().window().getSize().height;
 		this.driver.swipe(x / 4 * 2, y / 10 * i, x / 4 * 3, y / 10 * i, 0);
 	}
+
 	/***
-	* 切换WEB页面查找元素
-	*/
-	public void switchtoWeb(){
+	 * 切换WEB页面查找元素
+	 */
+	public void switchtoWeb() {
 		try {
 			Set<String> contextNames = this.driver.getContextHandles();
 			for (String contextName : contextNames) {
@@ -143,18 +159,22 @@ public class Action extends BaseInit {
 			e.printStackTrace();
 		}
 	}
-	//根据传入id连续点击存在的id元素
-	public void clickIfExitId(String id) {
-	    try {
-	      driver.findElementById(id).click();
-	    } catch (NoSuchElementException e) {
-	      System.out.println("Can not find element with id " + id + " . Skip!");
-	    }
-	  }
 
-	  public void clickIfExitIds(String[] ids) {
-	    for (String id : ids) {
-	      clickIfExitId(id);
-	    }
-	  }
+	// 根据传入id连续点击存在的id元素
+	public void clickIfExitId(String id) {
+		try {
+			driver.findElementById(id).click();
+		} catch (NoSuchElementException e) {
+			System.out.println("Can not find element with id " + id
+					+ " . Skip!");
+		}
+	}
+
+	// 连续点击多个id元素
+	public void clickIfExitIds(String[] ids) {
+		for (String id : ids) {
+			clickIfExitId(id);
+		}
+	}
+
 }
