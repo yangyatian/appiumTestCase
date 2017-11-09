@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="gaode.gaode.test.TestLogin">
+      <class name="gaode.gaode.test.TestSetting">
         <methods>
-          <include name="testLogin2"/>
-          <include name="beforeTestcase"/>
-          <include name="afterTestcase"/>
+          <include name="testSettingMap2"/>
+          <include name="beforeMethod"/>
           <include name="setUp"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- gaode.gaode.test.TestLogin -->
+      </class> <!-- gaode.gaode.test.TestSetting -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

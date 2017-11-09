@@ -32,6 +32,7 @@ public class HomePage extends BaseInit{
 	public WebElement getAccSetting(){
 		return this.driver.findElement(accountSetting);
 	}
+	
 	public WebElement getSearchInput(){
 		return this.driver.findElement(searchInput);
 	}

@@ -19,9 +19,9 @@ public class Action extends BaseInit {
 	public Action(AppiumDriver<AndroidElement> driver) {
 		this.driver = driver;
 	}
-	//等待获取元素
-	public void waitForFindElement() {
-		this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	//定时等待获取元素
+	public void waitForFindElement(int i) {
+		this.driver.manage().timeouts().implicitlyWait(i, TimeUnit.SECONDS);
 	}
 
 	// 获取当前时间并截图
@@ -160,7 +160,7 @@ public class Action extends BaseInit {
 		}
 	}
 
-	// 根据传入id连续点击存在的id元素
+	// 根据传入id连续点击
 	public void clickIfExitId(String id) {
 		try {
 			driver.findElementById(id).click();

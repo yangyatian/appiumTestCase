@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="439" started-at="2017-11-09T08:03:41Z" finished-at="2017-11-09T08:03:41Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="439" started-at="2017-11-09T08:03:41Z" finished-at="2017-11-09T08:03:41Z">
+      <class name="cn.httpApitest.www.HttpApitest.TestHttpApi">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:cn.httpApitest.www.HttpApitest.TestHttpApi@4dfa3a9d]" name="beforeMethod" is-config="true" duration-ms="15" started-at="2017-11-09T16:03:41Z" finished-at="2017-11-09T16:03:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="testPostByHttpClient()[pri:0, instance:cn.httpApitest.www.HttpApitest.TestHttpApi@4dfa3a9d]" name="testPostByHttpClient" duration-ms="424" started-at="2017-11-09T16:03:41Z" finished-at="2017-11-09T16:03:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPostByHttpClient -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:cn.httpApitest.www.HttpApitest.TestHttpApi@4dfa3a9d]" name="afterMethod" is-config="true" duration-ms="0" started-at="2017-11-09T16:03:41Z" finished-at="2017-11-09T16:03:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- cn.httpApitest.www.HttpApitest.TestHttpApi -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

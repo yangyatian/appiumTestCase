@@ -94,7 +94,8 @@ public class LoginPage extends BaseInit{
 			System.out.println("Î´µÇÂ¼£¬¿É¼ÌÐøµÇÂ¼ÓÃÀýÖ´ÐÐ");
 		}
 	}
-	By loginPageTit = By.xpath("");
+	//µÇÂ¼Ò³Ãætitle
+	By loginPageTit = By.name("ÕÊºÅµÇÂ¼");
 	public WebElement loginPageTitle() {
 		return driver.findElement(loginPageTit);
 	}
